@@ -12,6 +12,8 @@ namespace SpaceRocks
 {
     public partial class frmRocks : Form
     {
+        Graphics g; //declare a graphics object called g
+        Rock rock1 = new Rock();
         public frmRocks()
         {
             InitializeComponent();

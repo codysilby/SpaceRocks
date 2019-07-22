@@ -99,7 +99,8 @@
             // 
             // Heading
             // 
-            this.Heading.Image = global::SpaceRocks.Properties.Resources.header;
+            this.Heading.BackgroundImage = global::SpaceRocks.Properties.Resources.header;
+            this.Heading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Heading.Location = new System.Drawing.Point(110, 4);
             this.Heading.Name = "Heading";
             this.Heading.Size = new System.Drawing.Size(560, 90);
@@ -110,6 +111,7 @@
             // pnlGame
             // 
             this.pnlGame.BackgroundImage = global::SpaceRocks.Properties.Resources.background;
+            this.pnlGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pnlGame.Location = new System.Drawing.Point(12, 100);
             this.pnlGame.Name = "pnlGame";
             this.pnlGame.Size = new System.Drawing.Size(760, 449);
