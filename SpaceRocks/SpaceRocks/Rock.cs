@@ -16,14 +16,20 @@ namespace SpaceRocks
         public Rectangle rockRec;//variable for a rectangle to place our image in
         public int score;
         //Create a constructor (initialises the values of the fields)
-        public Rock()
+        public Rock(int spacing)
         {
-            x = 10;
+            x = spacing;
             y = 10;
-            width = 20;
-            height = 20;
+            width = 40;
+            height = 40;
             rockImage = Image.FromFile("rock1.png");
             rockRec = new Rectangle(x, y, width, height);
+        }
+        // Methods for the Planet class
+        public void drawRock(Graphics g)
+        {
+            rockRec = new Rectangle(x, y, width, height);
+            g.DrawImage(rockImage, rockRec);
         }
 
     }
