@@ -16,6 +16,7 @@ namespace SpaceRocks
         Graphics g; //declare a graphics object called g
         Rock[] rock = new Rock[7];
         Random yspeed = new Random();
+        Rocket rocket = new Rocket();
         public frmRocks()
         
         {
@@ -62,7 +63,7 @@ namespace SpaceRocks
                 //call the Planet class's drawPlanet method to draw the images
                 rock[i].drawRock(g);
             }
-
+            rocket.drawRocket(g);
         }
 
         private void tmrRock_Tick(object sender, EventArgs e)
