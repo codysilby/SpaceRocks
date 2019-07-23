@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.lblLives = new System.Windows.Forms.Label();
             this.Heading = new System.Windows.Forms.PictureBox();
             this.pnlGame = new System.Windows.Forms.Panel();
+            this.tmrRock = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Heading)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +120,11 @@
             this.pnlGame.TabIndex = 0;
             this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
             // 
+            // tmrRock
+            // 
+            this.tmrRock.Enabled = true;
+            this.tmrRock.Tick += new System.EventHandler(this.tmrRock_Tick);
+            // 
             // frmRocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +139,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Heading);
             this.Controls.Add(this.pnlGame);
+            this.DoubleBuffered = true;
             this.Name = "frmRocks";
             this.Text = "SpaceRocks";
             this.Load += new System.EventHandler(this.frmRocks_Load);
@@ -151,6 +159,7 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Label lblLives;
+        private System.Windows.Forms.Timer tmrRock;
     }
 }
 

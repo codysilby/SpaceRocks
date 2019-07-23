@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace SpaceRocks
@@ -31,6 +32,17 @@ namespace SpaceRocks
             rockRec = new Rectangle(x, y, width, height);
             g.DrawImage(rockImage, rockRec);
         }
+        public void moveRock()
+        {
+            rockRec.Location = new Point(x, y);
+            if (rockRec.Location.Y > 400)
+            {
+                y = 20;
+                rockRec.Location = new Point(x, y);
+            }
+
+        }
+
 
     }
 }
