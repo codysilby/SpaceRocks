@@ -17,8 +17,11 @@ namespace SpaceRocks
         Rock[] rock = new Rock[7];
         Random yspeed = new Random();
         Rocket rocket = new Rocket();
-        public frmRocks()
-        
+        bool left, right;
+        int score, lives;
+        string move;
+
+        public frmRocks() 
         {
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
@@ -46,7 +49,8 @@ namespace SpaceRocks
 
         private void frmRocks_Load(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Use the left and right arrow keys to move your space rocket! \n Don't get hit by the SpaceRocks! \n Every SpaceRock that gets past scores a point. \n If a SpaceRock hits your space rocket a life is lost! \n \n Enter your Name press tab and enter the number of lives \n Click Start to begin", "Game Instructions");
+            txtName.Focus();
         }
 
         private void pnlGame_Paint(object sender, PaintEventArgs e)
@@ -66,14 +70,78 @@ namespace SpaceRocks
             rocket.drawRocket(g);
         }
 
+        private void frmRocks_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = true; }
+            if (e.KeyData == Keys.Right) { right = true; }
+        }
+
+        private void frmRocks_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = false; }
+            if (e.KeyData == Keys.Right) { right = false; }
+        }
+
+        private void tmrRocket_Tick(object sender, EventArgs e)
+        {
+            if (right) // if right arrow key pressed
+            {
+                move = "right";
+                rocket.moveRocket(move);
+            }
+            if (left) // if left arrow key pressed
+            {
+                move = "left";
+                rocket.moveRocket(move);
+            }
+
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            score = 0;
+            lblScore.Text = score.ToString();
+            lives = int.Parse(lblLives.Text);// pass lives entered from textbox to lives variable
+            tmrRock.Enabled = true;
+            tmrRocket.Enabled = true;
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            tmrRocket.Enabled = false;
+            tmrRock.Enabled = false;
+        }
+
         private void tmrRock_Tick(object sender, EventArgs e)
         {
+            score = 0;
             for (int i = 0; i < 7; i++)
             {
                 rock[i].moveRock();
+                if (rocket.rocketRec.IntersectsWith(rock[i].rockRec))
+                {
+                    //reset planet[i] back to top of panel
+                    rock[i].y = 30; // set  y value of planetRec
+                    lives -= 1;// lose a life
+                    lblLives.Text = lives.ToString();// display number of lives
+                    checkLives();
+                }
+                score += rock[i].score;// get score from Planet class (in movePlanet method)
+                lblScore.Text = score.ToString();// display score
             }
             pnlGame.Invalidate();//makes the paint event fire to redraw the panel
 
         }
+        private void checkLives()
+        {
+            if (lives == 0)
+            {
+                tmrRock.Enabled = false;
+                tmrRocket.Enabled = false;
+                MessageBox.Show("Oops! Better luck next time.");
+
+            }
+        }
+
     }
 }

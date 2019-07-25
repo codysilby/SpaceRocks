@@ -37,6 +37,7 @@ namespace SpaceRocks
             rockRec.Location = new Point(x, y);
             if (rockRec.Location.Y > 400)
             {
+                score += 1;//This will add 1 point to the player's score when the planet reaches the bottom of the game panel.
                 y = 20;
                 rockRec.Location = new Point(x, y);
             }

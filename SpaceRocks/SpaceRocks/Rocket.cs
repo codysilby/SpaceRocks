@@ -33,5 +33,46 @@ namespace SpaceRocks
             g.DrawImage(rocket, rocketRec);
         }
 
+        public void moveRocket(string move)
+        {
+            rocketRec.Location = new Point(x, y);
+
+            if (move == "right")
+            {
+                if (rocketRec.Location.X > 700) // is rocket within 50 of right side
+                {
+
+                    x = 700;
+                    rocketRec.Location = new Point(x, y);
+                }
+                else
+                {
+                    x += 5;
+                    rocketRec.Location = new Point(x, y);
+                }
+
+            }
+
+            if (move == "left")
+            {
+                if (rocketRec.Location.X < 10) // is spaceship within 10 of left side
+                {
+
+                    x = 10;
+                    rocketRec.Location = new Point(x, y);
+                }
+                else
+                {
+                    x -= 5;//speed of rocket moving left
+                    rocketRec.Location = new Point(x, y);
+                }
+
+            }
+
+
+
+        }
+
+
     }
 }
