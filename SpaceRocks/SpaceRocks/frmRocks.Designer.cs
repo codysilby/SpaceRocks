@@ -125,18 +125,16 @@
             this.pnlGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pnlGame.Location = new System.Drawing.Point(12, 100);
             this.pnlGame.Name = "pnlGame";
-            this.pnlGame.Size = new System.Drawing.Size(760, 449);
+            this.pnlGame.Size = new System.Drawing.Size(760, 522);
             this.pnlGame.TabIndex = 0;
             this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
             // 
             // tmrRock
             // 
-            this.tmrRock.Enabled = true;
             this.tmrRock.Tick += new System.EventHandler(this.tmrRock_Tick);
             // 
             // tmrRocket
             // 
-            this.tmrRocket.Enabled = true;
             this.tmrRocket.Interval = 50;
             this.tmrRocket.Tick += new System.EventHandler(this.tmrRocket_Tick);
             // 
@@ -156,13 +154,14 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 9;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // frmRocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 634);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblLives);

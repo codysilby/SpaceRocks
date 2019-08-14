@@ -21,6 +21,8 @@ namespace SpaceRocks
         int score, lives;
         string move;
 
+
+
         public frmRocks() 
         {
             InitializeComponent();
@@ -110,6 +112,11 @@ namespace SpaceRocks
         {
             tmrRocket.Enabled = false;
             tmrRock.Enabled = false;
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void tmrRock_Tick(object sender, EventArgs e)
