@@ -51,7 +51,7 @@ namespace SpaceRocks
 
         private void frmRocks_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Use the left and right arrow keys to move your space rocket! \n Don't get hit by the SpaceRocks! \n Every SpaceRock that gets past scores a point. \n If a SpaceRock hits your space rocket a life is lost! \n \n Enter your Name press tab and enter the number of lives \n Click Start to begin", "Game Instructions");
+           // MessageBox.Show("Use the left and right arrow keys to move your space rocket! \n Don't get hit by the SpaceRocks! \n Every SpaceRock that gets past scores a point. \n If a SpaceRock hits your space rocket a life is lost! \n \n Enter your Name press tab and enter the number of lives \n Click Start to begin", "Game Instructions");
             txtName.Focus();
         }
 
@@ -101,6 +101,8 @@ namespace SpaceRocks
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            pnlStart.Visible = false;
+            startLogo.Visible = false;
             score = 0;
             lblScore.Text = score.ToString();
             lives = int.Parse(lblLives.Text);// pass lives entered from textbox to lives variable
@@ -115,6 +117,11 @@ namespace SpaceRocks
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

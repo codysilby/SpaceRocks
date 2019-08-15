@@ -29,19 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRocks));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.lblScore = new System.Windows.Forms.Label();
             this.lblLives = new System.Windows.Forms.Label();
-            this.Heading = new System.Windows.Forms.PictureBox();
-            this.pnlGame = new System.Windows.Forms.Panel();
             this.tmrRock = new System.Windows.Forms.Timer(this.components);
             this.tmrRocket = new System.Windows.Forms.Timer(this.components);
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.pnlStart = new System.Windows.Forms.Panel();
+            this.Heading = new System.Windows.Forms.PictureBox();
+            this.pnlGame = new System.Windows.Forms.Panel();
+            this.startLogo = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pnlStart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Heading)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,11 +76,11 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(686, 21);
+            this.btnStart.Location = new System.Drawing.Point(283, 277);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(230, 79);
             this.btnStart.TabIndex = 4;
-            this.btnStart.Text = " Let\'s Go!";
+            this.btnStart.Text = "Start!";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -108,27 +114,6 @@
             this.lblLives.TabIndex = 7;
             this.lblLives.Text = "5";
             // 
-            // Heading
-            // 
-            this.Heading.BackgroundImage = global::SpaceRocks.Properties.Resources.header;
-            this.Heading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Heading.Location = new System.Drawing.Point(110, 4);
-            this.Heading.Name = "Heading";
-            this.Heading.Size = new System.Drawing.Size(560, 90);
-            this.Heading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Heading.TabIndex = 1;
-            this.Heading.TabStop = false;
-            // 
-            // pnlGame
-            // 
-            this.pnlGame.BackgroundImage = global::SpaceRocks.Properties.Resources.background;
-            this.pnlGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlGame.Location = new System.Drawing.Point(12, 100);
-            this.pnlGame.Name = "pnlGame";
-            this.pnlGame.Size = new System.Drawing.Size(760, 522);
-            this.pnlGame.TabIndex = 0;
-            this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
-            // 
             // tmrRock
             // 
             this.tmrRock.Tick += new System.EventHandler(this.tmrRock_Tick);
@@ -156,18 +141,72 @@
             this.txtName.TabIndex = 9;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
+            // pnlStart
+            // 
+            this.pnlStart.Controls.Add(this.label3);
+            this.pnlStart.Controls.Add(this.startLogo);
+            this.pnlStart.Controls.Add(this.btnStart);
+            this.pnlStart.Location = new System.Drawing.Point(-8, -3);
+            this.pnlStart.Name = "pnlStart";
+            this.pnlStart.Size = new System.Drawing.Size(790, 639);
+            this.pnlStart.TabIndex = 10;
+            // 
+            // Heading
+            // 
+            this.Heading.BackgroundImage = global::SpaceRocks.Properties.Resources.header;
+            this.Heading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Heading.Location = new System.Drawing.Point(110, 4);
+            this.Heading.Name = "Heading";
+            this.Heading.Size = new System.Drawing.Size(560, 90);
+            this.Heading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Heading.TabIndex = 1;
+            this.Heading.TabStop = false;
+            // 
+            // pnlGame
+            // 
+            this.pnlGame.BackgroundImage = global::SpaceRocks.Properties.Resources.background;
+            this.pnlGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlGame.Location = new System.Drawing.Point(12, 100);
+            this.pnlGame.Name = "pnlGame";
+            this.pnlGame.Size = new System.Drawing.Size(760, 522);
+            this.pnlGame.TabIndex = 0;
+            this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
+            // 
+            // startLogo
+            // 
+            this.startLogo.BackgroundImage = global::SpaceRocks.Properties.Resources.header;
+            this.startLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startLogo.Location = new System.Drawing.Point(52, 141);
+            this.startLogo.Name = "startLogo";
+            this.startLogo.Size = new System.Drawing.Size(698, 117);
+            this.startLogo.TabIndex = 5;
+            this.startLogo.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(94, 402);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(600, 100);
+            this.label3.TabIndex = 6;
+            this.label3.Text = resources.GetString("label3.Text");
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.UseMnemonic = false;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // frmRocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(784, 634);
+            this.ClientSize = new System.Drawing.Size(784, 631);
+            this.Controls.Add(this.pnlStart);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblLives);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.btnStop);
-            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Heading);
@@ -179,7 +218,9 @@
             this.Load += new System.EventHandler(this.frmRocks_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRocks_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmRocks_KeyUp);
+            this.pnlStart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Heading)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +240,9 @@
         private System.Windows.Forms.Timer tmrRocket;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Panel pnlStart;
+        private System.Windows.Forms.PictureBox startLogo;
+        private System.Windows.Forms.Label label3;
     }
 }
 
