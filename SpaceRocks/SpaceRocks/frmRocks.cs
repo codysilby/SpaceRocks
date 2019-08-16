@@ -17,7 +17,7 @@ namespace SpaceRocks
         Rock[] rock = new Rock[7];
         Random yspeed = new Random();
         Rocket rocket = new Rocket();
-        bool left, right;
+        bool left, right, up, down;
         int score, lives;
         string move;
 
@@ -31,6 +31,7 @@ namespace SpaceRocks
             {
                 int x = 10 + (i * 115);
                 rock[i] = new Rock(x);
+                rock[i].y = yspeed.Next(-300, 0);
             }
         }
 
@@ -76,12 +77,16 @@ namespace SpaceRocks
         {
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
+            if (e.KeyData == Keys.Up) { up = true; }
+            if (e.KeyData == Keys.Down) { down = true; }
         }
 
         private void frmRocks_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left) { left = false; }
             if (e.KeyData == Keys.Right) { right = false; }
+            if (e.KeyData == Keys.Up) { up = false; }
+            if (e.KeyData == Keys.Down) { down = false; }
         }
 
         private void tmrRocket_Tick(object sender, EventArgs e)
@@ -94,6 +99,16 @@ namespace SpaceRocks
             if (left) // if left arrow key pressed
             {
                 move = "left";
+                rocket.moveRocket(move);
+            }
+            if (up) // if right arrow key pressed
+            {
+                move = "up";
+                rocket.moveRocket(move);
+            }
+            if (down) // if left arrow key pressed
+            {
+                move = "down";
                 rocket.moveRocket(move);
             }
 
@@ -135,7 +150,7 @@ namespace SpaceRocks
                 if (rocket.rocketRec.IntersectsWith(rock[i].rockRec))
                 {
                     //reset planet[i] back to top of panel
-                    rock[i].y = 30; // set  y value of planetRec
+                    rock[i].y = -60; // set  y value of planetRec
                     lives -= 1;// lose a life
                     lblLives.Text = lives.ToString();// display number of lives
                     checkLives();

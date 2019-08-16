@@ -21,8 +21,8 @@ namespace SpaceRocks
         {
             x = spacing;
             y = 10;
-            width = 40;
-            height = 40;
+            width = 55;
+            height = 55;
             rockImage = Image.FromFile("rock1.png");
             rockRec = new Rectangle(x, y, width, height);
         }
@@ -35,10 +35,10 @@ namespace SpaceRocks
         public void moveRock()
         {
             rockRec.Location = new Point(x, y);
-            if (rockRec.Location.Y > 400)
+            if (rockRec.Location.Y > 640)
             {
                 score += 1;//This will add 1 point to the player's score when the planet reaches the bottom of the game panel.
-                y = 20;
+                y = -60;
                 rockRec.Location = new Point(x, y);
             }
 

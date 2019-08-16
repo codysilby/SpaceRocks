@@ -20,7 +20,7 @@ namespace SpaceRocks
         public Rocket()
         {
             x = 10;
-            y = 360;
+            y = 400;
             width = 40;
             height = 80;
             rocket = Image.FromFile("ship1.png");
@@ -47,7 +47,7 @@ namespace SpaceRocks
                 }
                 else
                 {
-                    x += 5;
+                    x += 8;
                     rocketRec.Location = new Point(x, y);
                 }
 
@@ -63,7 +63,39 @@ namespace SpaceRocks
                 }
                 else
                 {
-                    x -= 5;//speed of rocket moving left
+                    x -= 8;//speed of rocket moving left
+                    rocketRec.Location = new Point(x, y);
+                }
+
+            }
+
+            if (move == "up")
+            {
+                if (rocketRec.Location.Y < 10) // is spaceship within 10 of left side
+                {
+
+                    y = 10;
+                    rocketRec.Location = new Point(x, y);
+                }
+                else
+                {
+                    y -= 8;//speed of rocket moving left
+                    rocketRec.Location = new Point(x, y);
+                }
+
+            }
+
+            if (move == "down")
+            {
+                if (rocketRec.Location.Y > 420) 
+                {
+
+                    y = 420;
+                    rocketRec.Location = new Point(x, y);
+                }
+                else
+                {
+                    y += 8;//speed of rocket moving left
                     rocketRec.Location = new Point(x, y);
                 }
 
