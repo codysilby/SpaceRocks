@@ -120,7 +120,9 @@ namespace SpaceRocks
             startLogo.Visible = false;
             score = 0;
             lblScore.Text = score.ToString();
-            lives = int.Parse(lblLives.Text);// pass lives entered from textbox to lives variable
+            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
+            lblLives.Text = txtLives.Text;
+            lblName.Text = txtName.Text;
             tmrRock.Enabled = true;
             tmrRocket.Enabled = true;
         }

@@ -124,7 +124,7 @@
     <value>114, 17</value>
   </metadata>
   <data name="label3.Text" xml:space="preserve">
-    <value>SpaceRocks is a galactic transportation game. Your objective is to dodge all of the space rocks that come towards you! Beware, your sheild is active, but it only has 5 lives! This means you can only get hit 5 times before you and your team are doomed! Good luck, Captain.</value>
+    <value>SpaceRocks is a galactic transportation game. Your objective is to dodge all of the space rocks that come towards you! Beware, your sheild is active, but it only has a certain amount of lives! This means you can only get hit a limited aount of times before you and your team are doomed! Good luck, Captain.</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>32</value>
