@@ -133,6 +133,17 @@ namespace SpaceRocks
             tmrRock.Enabled = false;
         }
 
+        private void txtName_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
         private void txtName_TextChanged(object sender, EventArgs e)
         {
 

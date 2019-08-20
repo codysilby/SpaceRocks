@@ -51,7 +51,6 @@
             this.pnlStart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.startLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Heading)).BeginInit();
-            this.pnlGame.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -136,7 +135,7 @@
             this.pnlStart.Controls.Add(this.label3);
             this.pnlStart.Controls.Add(this.startLogo);
             this.pnlStart.Controls.Add(this.btnStart);
-            this.pnlStart.Location = new System.Drawing.Point(12, 26);
+            this.pnlStart.Location = new System.Drawing.Point(-3, -4);
             this.pnlStart.Name = "pnlStart";
             this.pnlStart.Size = new System.Drawing.Size(790, 639);
             this.pnlStart.TabIndex = 10;
@@ -178,6 +177,8 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(99, 20);
             this.txtName.TabIndex = 7;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged_1);
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // label3
             // 
@@ -217,7 +218,6 @@
             // 
             this.pnlGame.BackgroundImage = global::SpaceRocks.Properties.Resources.background;
             this.pnlGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlGame.Controls.Add(this.pnlStart);
             this.pnlGame.Location = new System.Drawing.Point(12, 100);
             this.pnlGame.Name = "pnlGame";
             this.pnlGame.Size = new System.Drawing.Size(760, 522);
@@ -241,6 +241,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(784, 631);
+            this.Controls.Add(this.pnlStart);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblNameTitle);
             this.Controls.Add(this.lblLives);
@@ -260,7 +261,6 @@
             this.pnlStart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.startLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Heading)).EndInit();
-            this.pnlGame.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
