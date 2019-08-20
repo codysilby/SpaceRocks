@@ -170,6 +170,7 @@
             this.txtLives.Name = "txtLives";
             this.txtLives.Size = new System.Drawing.Size(95, 20);
             this.txtLives.TabIndex = 8;
+            this.txtLives.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLives_KeyPress);
             // 
             // txtName
             // 

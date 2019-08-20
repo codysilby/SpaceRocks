@@ -101,12 +101,12 @@ namespace SpaceRocks
                 move = "left";
                 rocket.moveRocket(move);
             }
-            if (up) // if right arrow key pressed
+            if (up) // if up arrow key pressed
             {
                 move = "up";
                 rocket.moveRocket(move);
             }
-            if (down) // if left arrow key pressed
+            if (down) // if down arrow key pressed
             {
                 move = "down";
                 rocket.moveRocket(move);
@@ -120,11 +120,11 @@ namespace SpaceRocks
             startLogo.Visible = false;
             score = 0;
             lblScore.Text = score.ToString();
-            lives = int.Parse(txtLives.Text);// pass lives entered from textbox to lives variable
-            lblLives.Text = txtLives.Text;
-            lblName.Text = txtName.Text;
-            tmrRock.Enabled = true;
-            tmrRocket.Enabled = true;
+            lives = int.Parse(txtLives.Text);// pass lives entered in the start screen textbox to lives variable
+            lblLives.Text = txtLives.Text;//updates the label on the game panel to display the lives which were entered in the start screen
+            lblName.Text = txtName.Text;//updates the name label on the game panel to display the name which was entered on start
+            tmrRock.Enabled = true;//enables the Rocks to move
+            tmrRocket.Enabled = true;//enables the rocket to be able to move
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -138,9 +138,15 @@ namespace SpaceRocks
 
         }
 
-        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)//makes it so only letters can be entered into textbox for name at start screen
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtLives_KeyPress(object sender, KeyPressEventArgs e)//makes it so only numbers can be entered into lives textbox
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
 
@@ -162,16 +168,16 @@ namespace SpaceRocks
                 rock[i].moveRock();
                 if (rocket.rocketRec.IntersectsWith(rock[i].rockRec))
                 {
-                    //reset planet[i] back to top of panel
-                    rock[i].y = -60; // set  y value of planetRec
-                    lives -= 1;// lose a life
-                    lblLives.Text = lives.ToString();// display number of lives
+                    //reset spacerock[i] back to top of panel
+                    rock[i].y = -60; // set  y value of rockRec
+                    lives -= 1;// takes 1 life off 
+                    lblLives.Text = lives.ToString();// displays the number of lives 
                     checkLives();
                 }
-                score += rock[i].score;// get score from Planet class (in movePlanet method)
-                lblScore.Text = score.ToString();// display score
+                score += rock[i].score;// get score from Rock class (in the moveRock method)
+                lblScore.Text = score.ToString();// displays the score
             }
-            pnlGame.Invalidate();//makes the paint event fire to redraw the panel
+            pnlGame.Invalidate();//makes the panel redraw - invalidates the panel so the paint fire even redraws the panel
 
         }
         private void checkLives()
@@ -181,6 +187,7 @@ namespace SpaceRocks
                 tmrRock.Enabled = false;
                 tmrRocket.Enabled = false;
                 MessageBox.Show("Oops! Better luck next time.");
+
 
             }
         }
