@@ -19,8 +19,8 @@ namespace SpaceRocks
         //Create a constructor (initialises the values of the fields)
         public Rock(int spacing)
         {
-            x = spacing;
-            y = 10;
+            y = spacing;
+            x = 10;
             width = 55;
             height = 55;
             rockImage = Image.FromFile("rock1.png");
@@ -35,10 +35,10 @@ namespace SpaceRocks
         public void moveRock()
         {
             rockRec.Location = new Point(x, y);
-            if (rockRec.Location.Y > 640)
+            if (rockRec.Location.X > 740)
             {
                 score += 1;//This will add 1 point to the player's score when the planet reaches the bottom of the game panel.
-                y = -60;
+                x = -60;
                 rockRec.Location = new Point(x, y);
             }
 

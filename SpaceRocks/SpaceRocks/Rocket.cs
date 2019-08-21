@@ -19,10 +19,10 @@ namespace SpaceRocks
         //Create a constructor (initialises the values of the fields)
         public Rocket()
         {
-            x = 10;
-            y = 400;
-            width = 40;
-            height = 80;
+            x = 400;
+            y = 200;
+            width = 80;
+            height = 40;
             rocket = Image.FromFile("ship1.png");
             rocketRec = new Rectangle(x, y, width, height);
         }

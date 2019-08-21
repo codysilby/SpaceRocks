@@ -15,7 +15,7 @@ namespace SpaceRocks
     {
         Graphics g; //declare a graphics object called g
         Rock[] rock = new Rock[7];
-        Random yspeed = new Random();
+        Random xspeed = new Random();
         Rocket rocket = new Rocket();
         bool left, right, up, down;
         int score, lives;
@@ -29,9 +29,9 @@ namespace SpaceRocks
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
             for (int i = 0; i < 7; i++)
             {
-                int x = 10 + (i * 115);
-                rock[i] = new Rock(x);
-                rock[i].y = yspeed.Next(-300, 0);
+                int y = 10 + (i * 115);
+                rock[i] = new Rock(y);
+                rock[i].x = xspeed.Next(-300, 0);
             }
         }
 
@@ -64,8 +64,8 @@ namespace SpaceRocks
             for (int i = 0; i < 7; i++)
             {
                 // generate a random number from 5 to 20 and put it in rndmspeed
-                int rndmspeed = yspeed.Next(5, 20);
-                rock[i].y += rndmspeed;
+                int rndmspeed = xspeed.Next(5, 20);
+                rock[i].x += rndmspeed;
 
                 //call the Planet class's drawPlanet method to draw the images
                 rock[i].drawRock(g);
@@ -169,7 +169,7 @@ namespace SpaceRocks
                 if (rocket.rocketRec.IntersectsWith(rock[i].rockRec))
                 {
                     //reset spacerock[i] back to top of panel
-                    rock[i].y = -60; // set  y value of rockRec
+                    rock[i].x = -60; // set  y value of rockRec
                     lives -= 1;// takes 1 life off 
                     lblLives.Text = lives.ToString();// displays the number of lives 
                     checkLives();
