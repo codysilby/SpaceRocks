@@ -87,10 +87,10 @@ namespace SpaceRocks
 
             if (move == "down")
             {
-                if (rocketRec.Location.Y > 420) 
+                if (rocketRec.Location.Y > 480) 
                 {
 
-                    y = 420;
+                    y = 480;
                     rocketRec.Location = new Point(x, y);
                 }
                 else
