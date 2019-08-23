@@ -20,9 +20,9 @@ namespace SpaceRocks
         public Rock(int spacing)
         {
             y = spacing;
-            x = 10;
-            width = 55;
-            height = 55;
+            x = 5;
+            width = 40;
+            height = 40;
             rockImage = Image.FromFile("rock1.png");
             rockRec = new Rectangle(x, y, width, height);
         }

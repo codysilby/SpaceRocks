@@ -14,7 +14,7 @@ namespace SpaceRocks
     public partial class frmRocks : Form
     {
         Graphics g; //declare a graphics object called g
-        Rock[] rock = new Rock[7];
+        Rock[] rock = new Rock[8];
         Random xspeed = new Random();
         Rocket rocket = new Rocket();
         bool left, right, up, down;
@@ -27,9 +27,9 @@ namespace SpaceRocks
         {
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
-                int y = 10 + (i * 115);
+                int y = 10 + (i * 60);
                 rock[i] = new Rock(y);
                 rock[i].x = xspeed.Next(-300, 0);
             }
@@ -61,11 +61,12 @@ namespace SpaceRocks
             //get the graphics used to paint on the panel control
             g = e.Graphics;
             //call the Planet class's DrawPlanet method to draw the image planet1 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
                 // generate a random number from 5 to 20 and put it in rndmspeed
-                int rndmspeed = xspeed.Next(5, 20);
-                rock[i].x += rndmspeed;
+                float rndmspeed = xspeed.Next(5, 20);
+                rndmspeed *= 1f + score / 60f;
+                rock[i].x += (int)rndmspeed;
 
                 //call the Planet class's drawPlanet method to draw the images
                 rock[i].drawRock(g);
